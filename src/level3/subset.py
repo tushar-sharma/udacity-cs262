@@ -4,17 +4,19 @@
 
 def get_subset(elem , list_set):
 
-    print elem 
     if not list_set:
         return elem
+    else:
+        print elem
+	current_elem = elem 
+	#insert the first element of the list 
+	elem.append(list_set[0]) 
 
-    copy = elem
-    elem.append(list_set[0]) 
+        # get the left tree for elem in the list
+        get_subset(elem, list_set[1:])
 
-
-    get_subset(elem, list_set[1:])
-
-    get_subset(copy, list_set[1:])
+        # get the right tree for elem not in the list
+        get_subset(current_elem, list_set[1:])
 
 
 def main(list_set):
